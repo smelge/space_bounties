@@ -76,16 +76,16 @@ until quitloop == true
       p "Enter an ID to alter: "
       id = gets.chomp.to_i
       bounty_list = Bounties.view_one(id)
-      # binding.pry
-      bounty_list.each do |bounty|
-        p "Bounty #{bounty.id}: #{bounty.name} (#{bounty.species}) - Ω#{bounty.bounty}"
-      end
 
       name = bounty_list[0].name
       species = bounty_list[0].species
       bounty = bounty_list[0].bounty.to_i
       id = bounty_list[0].id.to_i
-      
+
+      p "Bounty #{id}: #{name} (#{species}) - Ω#{bounty}"
+
+
+
       # ask which attribute to change
       p "name - Change Name"
       p "species - Change Species"
