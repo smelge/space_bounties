@@ -79,11 +79,13 @@ until quitloop == true
       # binding.pry
       bounty_list.each do |bounty|
         p "Bounty #{bounty.id}: #{bounty.name} (#{bounty.species}) - Ω#{bounty.bounty}"
-
-        name = bounty.name
-        species = bounty.species
-        bounty = bounty.bounty.to_i
       end
+
+      name = bounty_list[0].name
+      species = bounty_list[0].species
+      bounty = bounty_list[0].bounty.to_i
+      id = bounty_list[0].id.to_i
+      
       # ask which attribute to change
       p "name - Change Name"
       p "species - Change Species"

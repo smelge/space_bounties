@@ -84,9 +84,8 @@ class Bounties
     db.close()
   end
 
-  def self.update()
+  def self.update(name,species,bounty,id)
     db = PG.connect({dbname: 'space_bounties',host:'localhost'})
-    binding.pry
     sql = "
       UPDATE space_bounties
       SET (name,species,bounty)
@@ -94,7 +93,7 @@ class Bounties
       WHERE id = $4
       ;"
 
-      values = [@name,@species,@bounty,@id]
+      values = [name,species,bounty,id]
 
     db.prepare('update',sql)
     db.exec_prepared('update',values)
